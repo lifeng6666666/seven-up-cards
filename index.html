@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>《人生七年》人物卡片与成长轨迹</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Up Series 数据探索</p>
+        <h1>《人生七年》人物卡片</h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="filters" aria-label="人物筛选">
+        <label>
+          姓名
+          <input id="nameFilter" type="search" placeholder="搜索姓名或中文名" />
+        </label>
+        <label>
+          年龄节点
+          <select id="ageFilter">
+            <option value="all">全部年龄</option>
+          </select>
+        </label>
+        <label>
+          婚姻状况
+          <select id="maritalFilter">
+            <option value="all">全部婚姻状况</option>
+          </select>
+        </label>
+        <label>
+          教育
+          <select id="educationFilter">
+            <option value="all">全部教育</option>
+          </select>
+        </label>
+        <label>
+          生活满意度
+          <select id="satisfactionFilter">
+            <option value="all">全部满意度</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="summary-row" aria-label="筛选摘要">
+        <div>
+          <strong id="resultCount">0</strong>
+          <span>位人物匹配当前条件</span>
+        </div>
+        <button id="resetFilters" type="button">重置筛选</button>
+      </section>
+
+      <section class="workspace">
+        <section>
+          <div class="section-heading">
+            <h2>人物卡片列表</h2>
+            <span>点击卡片查看成长轨迹</span>
+          </div>
+          <div id="cards" class="cards" aria-live="polite"></div>
+        </section>
+
+        <aside class="detail-panel" aria-label="成长轨迹探索">
+          <div id="personDetail"></div>
+        </aside>
+      </section>
+
+      <section class="comparison">
+        <div class="section-heading">
+          <h2>对比分析</h2>
+          <span>按条件分组，观察生活状态指标</span>
+        </div>
+        <div class="compare-controls">
+          <label>
+            分组条件
+            <select id="groupBy">
+              <option value="maritalStatus">婚姻状况</option>
+              <option value="education">教育</option>
+              <option value="originClass">成长背景</option>
+              <option value="jobCategory">工作类别</option>
+              <option value="residence">居住地</option>
+            </select>
+          </label>
+          <label>
+            对比指标
+            <select id="metric">
+              <option value="lifeSatisfactionScore">平均生活满意度</option>
+              <option value="childrenCount">平均子女数量</option>
+              <option value="count">人数</option>
+            </select>
+          </label>
+          <label>
+            年龄节点
+            <select id="compareAge"></select>
+          </label>
+        </div>
+        <div id="chart" class="chart" role="img" aria-label="对比图表"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
